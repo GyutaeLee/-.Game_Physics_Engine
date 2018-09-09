@@ -18,6 +18,31 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="app.cpp" />
+    <ClCompile Include="body.cpp" />
+    <ClCompile Include="collide_coarse.cpp" />
+    <ClCompile Include="collide_fine.cpp" />
+    <ClCompile Include="contacts.cpp" />
+    <ClCompile Include="core.cpp" />
+    <ClCompile Include="fgen.cpp" />
+    <ClCompile Include="fireworks.cpp" />
+    <ClCompile Include="joints.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="particle.cpp" />
+    <ClCompile Include="pcontacts.cpp" />
+    <ClCompile Include="pfgen.cpp" />
+    <ClCompile Include="plinks.cpp" />
+    <ClCompile Include="pworld.cpp" />
+    <ClCompile Include="random.cpp" />
+    <ClCompile Include="timing.cpp" />
+    <ClCompile Include="world.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\app.h" />
+    <ClInclude Include="..\include\ogl_headers.h" />
+    <ClInclude Include="..\include\timing.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{03EC4BB7-318A-40EE-BB47-1A049F3FCB75}</ProjectGuid>
@@ -69,14 +94,22 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>C:\Users\134461\Desktop\PhysicsEngine\physics_engine\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\134461\Desktop\PhysicsEngine\physics_engine\lib\win32;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
+    <Link />
+    <Link>
+      <AdditionalDependencies>cyclone.lib;glut.lib;glut32.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -114,8 +147,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
